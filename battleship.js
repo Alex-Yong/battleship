@@ -29,7 +29,7 @@ $(document).ready(function(){
   });
 
   //hidden button that reveals ships
-  $("#revealShips").hide().on("click", function(){
+  $("#revealShips").on("click", function(){
     // board.forEach(function(){
     //   var shipId = $("td").attr("id");
       $(ship1).addClass("hit");
@@ -80,22 +80,102 @@ function initializeTable(){
 //Signature: nothing -> nothing
 //Example: shipCount() -> nothing
 function shipCount(){
-  var index1;
-  var index2;
-  do {
-    index1 = Math.floor((Math.random()*10));
-    console.log(index1);
-    index2 = Math.floor((Math.random()*10));
-    console.log(index2);
-    if (board[index1][index2] != 1){
-      board[index1][index2]=1;
+  var y;
+  var x;
+  while(ship < 5){
+    x = Math.floor((Math.random()*10));//x
+    console.log(x);
+    y = Math.floor((Math.random()*10));//y
+    console.log(y);
+    if (spaceAvailable(x, y)===true){
+      board[x][y]=1;
       ship++;
-      answerKey.push(index1, index2);
+      answerKey.push(x, y);
       ship1 = "#" + answerKey[0] + answerKey[1];
       ship2 = "#" + answerKey[2] + answerKey[3];
       ship3 = "#" + answerKey[4] + answerKey[5];
       ship4 = "#" + answerKey[6] + answerKey[7];
       ship5 = "#" + answerKey[8] + answerKey[9];
     }
-  } while (ship < 5);
+  } //while (ship < 5);
+}
+
+
+// purpose: create a function that tests if we can place a ship at a given location
+// signature: (x,y)-->boolean
+// example: spaceAvailable(1,2)-->true;
+function spaceAvailable(x,y){
+  if(y !=0 && y!= 9 && x!= 0 && x!=9){
+    console.log("border control");
+    if (board[x][y] !=1 && board[x+1][y] != 1 && board[x-1][y] != 1 && board[x][y+1] != 1 && board[x][y-1] != 1 && board[x-1][y-1] !=1 && board[x-1][y+1] !=1 && board[x+1][y-1] !=1 && board[x+1][y+1] !=1){
+      return true;
+    } else {
+      return false;
+    }
+  }
+
+  if(y===0 && (x!=0 && x!=9)){
+    console.log("top border");
+    if (board[x][y] != 1 && board[x+1][y] != 1 && board[x-1][y] != 1 && board[x][y+1] != 1 && board[x-1][y+1] !=1 && board[x+1][y+1] !=1){
+      return true;
+    } else {
+      return false;
+    }
+  }
+  if(y===9 && (x!=0 && x!=9)){
+    console.log("bottom");
+    if (board[x][y] != 1 && board[x+1][y] != 1 && board[x-1][y] != 1 && board[x][y-1] != 1 && board[x-1][y-1] !=1 && board[x+1][y-1] !=1){
+      return true;
+    } else {
+      return false;
+    }
+  }
+  if(x===0 && (y!=0 && y!=9)){
+    console.log("left");
+    if (board[x][y] != 1 && board[x+1][y] != 1 && board[x][y+1] != 1 && board[x][y-1] != 1 && board[x+1][y-1] !=1 && board[x+1][y+1] !=1){
+      return true;
+    } else {
+      return false;
+    }
+  }
+  if(x===9 && (y!=0 && y!=9)){
+    console.log("right");
+    if (board[x][y] != 1 && board[x-1][y] != 1 && board[x][y+1] != 1 && board[x][y-1] != 1 && board[x-1][y-1] !=1 && board[x-1][y+1] !=1){
+      return true;
+    } else {
+      return false;
+    }
+  }
+  if(x===0 && y===0){
+    console.log("top left corner");
+    if (board[x][y] != 1 && board[x+1][y] != 1 && board[x][y+1] != 1 && board[x+1][y+1] !=1){
+      return true;
+    } else {
+      return false;
+    }
+  }
+  if(x===0 && y===9){
+    console.log("top right corner");
+    if (board[x][y] != 1 && board[x+1][y] != 1 && board[x][y-1] != 1 && board[x+1][y-1] !=1){
+      return true;
+    } else {
+      return false;
+    }
+  }
+  if(x===9 && y===9){
+    console.log("bottom right corner");
+    if (board[x][y] != 1 && board[x-1][y] != 1 && board[x][y-1] != 1 && board[x-1][y-1] !=1){
+      return true;
+    } else {
+      return false;
+    }
+  }
+  if(x===9 && y===0){
+    console.log("bottom left corner");
+    if (board[x][y] != 1 && board[x-1][y] != 1 && board[x][y+1] != 1 && board[x-1][y+1] !=1){
+      return true;
+    } else {
+      return false;
+    }
+  }
 }
