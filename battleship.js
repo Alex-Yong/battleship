@@ -12,6 +12,7 @@ $(document).ready(function(){
     if (torpedoCounter===-1){
       $("td").off("click");
       $("#notification").text("You lose!!!");
+      $("#revealShips").show();
     }
     //Declares variable, assigns it the ID of whatever td the user clicks
     var boxId = $(this).attr("id");
@@ -27,22 +28,29 @@ $(document).ready(function(){
     }
   });
 
-//TRY TOMORROW: when user clicks button, reveal the ships on the board by addingClass("hit") to the td's = 1;
-  // $("#revealShips").on("click", function(){
-  //   board.forEach(function(){
-  //     var shipId = $("td").attr("id");
-  //     if ( 1 === (board[shipId[0]][shipId[1]])){
-  //       $(this).addClass("hit");
-  //     }
-  //   });
-  // });
-
-});
+  //hidden button that reveals ships
+  $("#revealShips").hide().on("click", function(){
+    // board.forEach(function(){
+    //   var shipId = $("td").attr("id");
+      $(ship1).addClass("hit");
+      $(ship2).addClass("hit");
+      $(ship3).addClass("hit");
+      $(ship4).addClass("hit");
+      $(ship5).addClass("hit");
+    // });
+  });//closes button on click
+});//closes document ready
 
 var board = [[],[],[],[],[],[],[],[],[],[]];
 var torpedoCounter = 24;
 var ship = 0;
 var shipsHit = 0;
+var answerKey = [];
+var ship1;
+var ship2;
+var ship3;
+var ship4;
+var ship5;
 
 //Purpose: reduce torpedoCounter by 1
 //Signature: nothing -> number
@@ -82,6 +90,12 @@ function shipCount(){
     if (board[index1][index2] != 1){
       board[index1][index2]=1;
       ship++;
+      answerKey.push(index1, index2);
+      ship1 = "#" + answerKey[0] + answerKey[1];
+      ship2 = "#" + answerKey[2] + answerKey[3];
+      ship3 = "#" + answerKey[4] + answerKey[5];
+      ship4 = "#" + answerKey[6] + answerKey[7];
+      ship5 = "#" + answerKey[8] + answerKey[9];
     }
   } while (ship < 5);
 }
