@@ -26,3 +26,7 @@ table {
 .miss {
   background-color: white;
 }
+
+.hit {
+  background-color: red;
+}
