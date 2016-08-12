@@ -6,8 +6,12 @@ td {
   background-color: #b3cde0;
 }
 
-.container > .jumbotron {
-  background-color: #6497b1;
+.jumbotron {
+  background-color: white;
+  height: 380px;
+  background-image: url("https://phirafirestorm.files.wordpress.com/2012/05/battleship.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
   color: white;
   margin-top: 60px;
   text-align: center;
@@ -21,6 +25,7 @@ td {
 table {
   display: flex;
   justify-content: center;
+  margin-bottom: 12px;
 }
 
 .miss {
@@ -29,4 +34,14 @@ table {
 
 .hit {
   background-color: red;
+}
+
+p {
+  text-align: center;
+  text-transform: uppercase;
+}
+
+body {
+  font-family: 'Monda', sans-serif;
+  font-size: 24pt;
 }

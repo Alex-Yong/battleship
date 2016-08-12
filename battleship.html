@@ -4,8 +4,6 @@
     <title>Play Battleship</title>
     <!-- adds Jquery -->
     <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
-    <!-- links CSS file to HTML -->
-    <link rel="stylesheet" type="text/css" href="battleship.css"/>
     <!-- links JS file to HTML -->
     <script src="battleship.js"></script>
     <!-- Latest compiled and minified CSS -->
@@ -15,16 +13,17 @@
     <!-- Latest compiled and minified JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
     <link href='https://fonts.googleapis.com/css?family=Passion+One' rel='stylesheet' type='text/css'>
+    <!-- links CSS file to HTML -->
+    <link rel="stylesheet" type="text/css" href="battleship.css"/>
+    <link href='https://fonts.googleapis.com/css?family=Monda' rel='stylesheet' type='text/css'>
   </head>
   <body>
+    <div class="jumbotron">
+    </div>
     <div class="container">
-      <div class="jumbotron">
-        <h1>battleShip</h1>
-        <h4>everyone's favorite strategy game!</h4>
-      </div>
       <table id="table"></table>
       <p id="torpedosLeft">Torpedos left: 25</p>
-      <p id="shipsSunk">Ships sunk: 0</p>
+      <p id="shipsSunk">Hits: 0</p>
       <p id="notification"></p>
       <button id="revealShips">Reveal the ships</button>
     </div>
