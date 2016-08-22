@@ -159,8 +159,7 @@ function spaceAvailable(x,y){
   }
   //if statement for bottom row's middle 8 squares
   if(x===9 && (y!=0 && y!=9)){
-    return (board[x][y] != 1 && board[x-1][y] != 1 && board[x][y+1] != 1 && board[x][y-1] != 1 && board[x-1][y-1] !=1 && board[x-1][y+1] !=1)
-    if {
+    if (board[x][y] != 1 && board[x-1][y] != 1 && board[x][y+1] != 1 && board[x][y-1] != 1 && board[x-1][y-1] !=1 && board[x-1][y+1] !=1){
       return true;
     } else {
       return false;
